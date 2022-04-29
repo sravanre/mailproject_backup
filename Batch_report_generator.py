@@ -61,7 +61,7 @@ my_file.close()
 #comparing the two generated files and writing the output into the batch report on a new lines , file: diff1.py
 
 compared_output_2files = open("compared_output_2files.txt", "a+")
-compared_output_2files.write("\t\t\t\t:::::WAITING JOBS:::::")
+compared_output_2files.write("\t\t\t\t:::::::::::WAITING JOBS:::::::::::")
 compared_output_2files.write('\n')
 file1 = open('result_TWS_Report.txt', 'r').readlines()
 file2 = open('TWSmapJobNames.txt', 'r').readlines()
@@ -158,7 +158,7 @@ my_file = open(textfilepath, "a+")
 with open(filepath, 'r') as fp:
     print("\t\t\t\t\t::::ERROR JOB LIST::::")
     my_file.writelines("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTopDanmark BatchJob Report\n\n")
-    my_file.writelines("\t\t\t\t\t::::ERROR JOB LIST::::")
+    my_file.writelines("\t\t\t\t\t:::::::::::ERROR JOB LIST:::::::::::")
     for l_no, line in enumerate(fp):
         for x in check_error:
 
@@ -182,7 +182,7 @@ with open(filepath, 'r') as fp:
     print('\n')
     print("\t\t\t\t\t::::INPROGRESS JOB LIST ::::::")
     my_file.writelines('\n')
-    my_file.writelines("\t\t\t\t\t::::INPROGRESS JOB LIST ::::::")
+    my_file.writelines("\n\t\t\t\t\t:::::::::::INPROGRESS JOB LIST:::::::::::")
     for l_no, line in enumerate(fp):
         for x in inprogress:
             if str(x) in line:
@@ -190,10 +190,10 @@ with open(filepath, 'r') as fp:
                 line2=line1.split(',')
                 if x in line2:
                     #print("::::ERROR job Report::::")
-                    print(line2[1])
+                    print(line2[1]+" = "+line2[8])
                     #print(line2[1])
                     my_file.write('\n')
-                    my_file.writelines(line2[1])
+                    my_file.writelines(line2[1] + "   ( "+line2[8] + " )")
 
 # adding the waiting jobs into the pdf files                   
 
