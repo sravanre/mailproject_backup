@@ -61,7 +61,7 @@ my_file.close()
 #comparing the two generated files and writing the output into the batch report on a new lines , file: diff1.py
 
 compared_output_2files = open("compared_output_2files.txt", "a+")
-compared_output_2files.write("\t\t\t\t:::::::::::WAITING JOBS:::::::::::")
+compared_output_2files.write("\t\t\t\t:::::::::::   WAITING JOBS   :::::::::::")
 compared_output_2files.write('\n')
 file1 = open('result_TWS_Report.txt', 'r').readlines()
 file2 = open('TWSmapJobNames.txt', 'r').readlines()
@@ -127,8 +127,9 @@ compared_output_2files.close()
 
 
 ## 10 status code is also added into the check as of now
-check_error = ['21', '22', '10', '23', '24', '25', '26', '27', '28', '29', '31'] 
+check_error = ['21', '22', '23', '24', '25', '26', '27', '28', '29', '31', '32', '33', '34'] 
 inprogress = ['-1']
+warning = ['10']
 
 
 # declaring a path variable  ( this can be hardcoded also os.getcwd() )
@@ -158,7 +159,7 @@ my_file = open(textfilepath, "a+")
 with open(filepath, 'r') as fp:
     print("\t\t\t\t\t::::ERROR JOB LIST::::")
     my_file.writelines("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTopDanmark BatchJob Report\n\n")
-    my_file.writelines("\t\t\t\t\t:::::::::::ERROR JOB LIST:::::::::::")
+    my_file.writelines("\t\t\t\t\t:::::::::::   ERROR JOBS   :::::::::::")
     for l_no, line in enumerate(fp):
         for x in check_error:
 
@@ -182,7 +183,7 @@ with open(filepath, 'r') as fp:
     print('\n')
     print("\t\t\t\t\t::::INPROGRESS JOB LIST ::::::")
     my_file.writelines('\n')
-    my_file.writelines("\n\t\t\t\t\t:::::::::::INPROGRESS JOB LIST:::::::::::")
+    my_file.writelines("\n\t\t\t\t\t:::::::::::   INPROGRESS JOBS   :::::::::::")
     for l_no, line in enumerate(fp):
         for x in inprogress:
             if str(x) in line:
@@ -194,6 +195,22 @@ with open(filepath, 'r') as fp:
                     #print(line2[1])
                     my_file.write('\n')
                     my_file.writelines(line2[1] + "   ( "+line2[8] + " )")
+
+with open(filepath, 'r') as fp:
+    print("\t\t\t\t\t::::WARNING JOB LIST ::::::")               
+    my_file.writelines('\n')
+    my_file.writelines("\n\t\t\t\t\t:::::::::::   WARNING JOBS   :::::::::::")
+    for l_no, line in enumerate(fp):
+        for x in warning:
+            if str(x) in line:
+                line1=line.strip()
+                line2=line1.split(',')
+                if x in line2:
+                    print(line2[1])
+                    my_file.write('\n')
+                    my_file.writelines(line2[1])
+                    
+
 
 # adding the waiting jobs into the pdf files                   
 
