@@ -10,6 +10,7 @@ checkW= 'STATUS(W)'
 filepath = 'DP5PLST1.TXT'
 
 
+
 # removing the files before every new execution 
 
 textfile = pathlib.Path("result_TWS_Report.txt")
@@ -74,8 +75,8 @@ for j in file2:
             #print(j.strip())
             # print(j.strip().split(','))
             k = j.strip().split(',')
-            print(k[1])
-            compared_output_2files.writelines(k[1])
+            print(k[1] + 'BatchJob')
+            compared_output_2files.writelines(k[1] + 'BatchJob')
             compared_output_2files.writelines('\n')
 
 compared_output_2files.close()
@@ -126,7 +127,7 @@ compared_output_2files.close()
 
 
 ## 10 status code is also added into the check as of now
-check_error = ['21', '22', '10', '23', '24', '25', '26', '27', '28', '29'] 
+check_error = ['21', '22', '10', '23', '24', '25', '26', '27', '28', '29', '31'] 
 inprogress = ['-1']
 
 
@@ -193,6 +194,8 @@ with open(filepath, 'r') as fp:
                     #print(line2[1])
                     my_file.write('\n')
                     my_file.writelines(line2[1])
+
+# adding the waiting jobs into the pdf files                   
 
 with open(comparedfile, 'r') as fp:
     my_file.writelines('\n')
