@@ -127,7 +127,7 @@ compared_output_2files.close()
 
 
 ## 10 status code is also added into the check as of now
-check_error = ['21', '22', '23', '24', '25', '26', '27', '28', '29', '31', '32', '33', '34'] 
+check_error = ['21', '22', '23', '24', '25', '26', '27', '28', '29', '31', '32', '33', '34', '35', '36', '37', '38', '39'] 
 inprogress = ['-1']
 warning = ['10']
 
