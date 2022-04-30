@@ -177,7 +177,7 @@ with open(filepath, 'r') as fp:
                     print(line2[1])
                     #print(line2[1])
                     my_file.write('\n')
-                    my_file.writelines(line2[1])
+                    my_file.writelines(line2[1] + "    ( error_code = " +line2[9] + " )")
 
 with open(filepath, 'r') as fp:
     print('\n')
@@ -194,7 +194,7 @@ with open(filepath, 'r') as fp:
                     print(line2[1]+" = "+line2[8])
                     #print(line2[1])
                     my_file.write('\n')
-                    my_file.writelines(line2[1] + "   ( "+line2[8] + " )")
+                    my_file.writelines(line2[1] + "   ( "+line2[8] + "% )")
 
 with open(filepath, 'r') as fp:
     print("\t\t\t\t\t::::WARNING JOB LIST ::::::")               
@@ -208,7 +208,7 @@ with open(filepath, 'r') as fp:
                 if x in line2:
                     print(line2[1])
                     my_file.write('\n')
-                    my_file.writelines(line2[1])
+                    my_file.writelines(line2[1] + "    ( error_code = " +line2[9] + " )")
                     
 
 
