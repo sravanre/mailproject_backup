@@ -172,12 +172,12 @@ with open(filepath, 'r') as fp:
             # don't look for next lines
                 line1=line.strip()
                 line2=line1.split(',')
-                if x in line2:
+                if x in line2[9]:
                     #print("::::ERROR job Report::::")
                     print(line2[1])
                     #print(line2[1])
                     my_file.write('\n')
-                    my_file.writelines(line2[1] + "    ( error_code = " +line2[9] + " )")
+                    my_file.writelines(line2[1] + "       { error_code = " +line2[9] + " }")
 
 with open(filepath, 'r') as fp:
     print('\n')
@@ -189,7 +189,7 @@ with open(filepath, 'r') as fp:
             if str(x) in line:
                 line1=line.strip()
                 line2=line1.split(',')
-                if x in line2:
+                if x in line2[9]:
                     #print("::::ERROR job Report::::")
                     print(line2[1]+" = "+line2[8])
                     #print(line2[1])
@@ -205,10 +205,10 @@ with open(filepath, 'r') as fp:
             if str(x) in line:
                 line1=line.strip()
                 line2=line1.split(',')
-                if x in line2:
+                if x in line2[9]:     ## searching on the particular column of the error code , against each row taken as input 
                     print(line2[1])
                     my_file.write('\n')
-                    my_file.writelines(line2[1] + "    ( error_code = " +line2[9] + " )")
+                    my_file.writelines(line2[1] + "       { error_code = " +line2[9] + " }")
                     
 
 
